@@ -5,9 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="css/flower.css" />
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 100vh;
+        background-color: #fdf6e3;
+        font-family: Arial, sans-serif;
+      }
+      #thankyou {
+        font-size: 2em;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+      .photo-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 pictures per row */
+        gap: 15px;
+        margin-top: 20px;
+      }
+      .photo-container img {
+        width: 150px; /* Adjust size */
+        height: auto;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease-in-out;
+      }
+      .photo-container img:hover {
+        transform: scale(1.1);
+      }
+    </style>
   </head>
   <body>
-    <div id="thankyou"><b>Thank you for being my girlfriend</b></div>
+    <div id="thankyou"><b>Thank you for being my girlfriend nakub>< 👉👈 </b></div>
+
+    <div class="photo-container">
+      <img src="images\pmindicecream.jpg" alt="Picture 1" />
+      <img src="images\pmind.jpg" alt="Picture 2" />
+      <img src="images\painting.jpg" alt="Picture 3" />
+      <img src="images\me.jpg" alt="Picture 4" />
+    </div>
+
     <div class="flower">
       <div class="f-wrapper">
         <div class="flower__line"></div>
@@ -58,5 +99,16 @@
       </div>
       <div class="flower__glass"></div>
     </div>
+    <script>
+      function createFlower() {
+        const falling = document.createElement('div');
+        falling.classList.add('falling');
+        falling.style.left = Math.random() * 100 + 'vw';
+        falling.style.animationDuration = Math.random() * 3 + 2 + 's';
+        document.body.appendChild(falling);
+        setTimeout(() => { falling.remove(); }, 5000);
+      }
+      setInterval(createFlower, 300);
+    </script>
   </body>
 </html>

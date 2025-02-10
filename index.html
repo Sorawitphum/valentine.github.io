@@ -4,29 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Be My Valentine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/valentine.css" />
   </head>
   <body>
-    <div id="valentineQuestion"><b>Will you be my valentine?</b></div>
-    <button class="answerButton" onclick="location.href='thankyou.html'">
-      Yes
-    </button>
-    <button class="answerButton" id="noButton">I no no wanna o(╥﹏╥)o</button>
-    <br />
-    <img src="cat.gif" alt="cat asking question" class="responsive" />
+    <div id="valentineContainer">
+      <div id="valentineQuestion"><b>Will you be my Valentine? 💖</b></div>
+      <div id="buttonContainer">
+        <button class="answerButton yesButton" onclick="location.href='thankyou.html'">Yes</button>
+        <button class="answerButton noButton" id="noButton">No (╥﹏╥)</button>
+        <img id="sadCat" src="cat-cat-meme.gif" alt="Sad Cat" class="responsive" style="display: none; width: 150px; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000;">
+      </div>
+      <img src="cat.gif" alt="cat asking question" class="responsive" />
+    </div>
 
     <script>
-      document
-        .getElementById("noButton")
-        .addEventListener("click", function () {
-          var yesButton = document.querySelector(
-            'button[onclick*="thankyou.html"]'
-          );
-          var currentFontSize = parseInt(
-            window.getComputedStyle(yesButton).fontSize
-          );
-          yesButton.style.fontSize = currentFontSize + 10 + "px"; // Increase font size by 5px
-        });
+      document.getElementById("noButton").addEventListener("click", function () {
+        var yesButton = document.querySelector(".yesButton");
+        var currentSize = parseInt(window.getComputedStyle(yesButton).fontSize);
+        yesButton.style.fontSize = currentSize + 10 + "px";
+      });
+
+      document.getElementById("noButton").addEventListener("click", function() {
+        var sadCat = document.getElementById("sadCat");
+        sadCat.style.display = "block"; // Show the sad cat image
+        setTimeout(function() {
+          sadCat.style.display = "none"; // Hide the sad cat image after 3 seconds
+        }, 3000);
+      });
+    
     </script>
   </body>
 </html>
