@@ -22,7 +22,26 @@ body{
     overflow: hidden;
 	color: #FF9494;
 	font-family: courier;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    animation: backgroundAnimation 10s infinite alternate;
 }
+@keyframes backgroundAnimation {
+    0% { background: linear-gradient(135deg, #ff9a9e, #fad0c4); }
+    50% { background: linear-gradient(135deg, #fbc2eb, #a6c1ee); }
+    100% { background: linear-gradient(135deg, #fdfbfb, #ebedee); }
+  }
+  .falling {
+    position: absolute;
+    top: -10%;
+    width: 45px;
+    height: 45px;
+    background: url('https://scontent.xx.fbcdn.net/v/t1.15752-9/474271851_1770171810498204_2089769703597769850_n.png?_nc_cat=111&ccb=1-7&_nc_sid=0024fc&_nc_ohc=wqo07QiLCIMQ7kNvgEoLHOs&_nc_oc=Adgm-O2AR9qSg2A02KKmBrOK7ipxq8-fSaCCFvqYFMuGYbgezKF6yncwyccj1d-ELtKZGOFTEyDsfr9CmWUnapDo&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&oh=03_Q7cD1gHHA-xyLhLB4ReGayav5Db0FZ6SSeNGw-NsOzmLSj7OLw&oe=67D1A15F') no-repeat center/contain;
+    animation: fall linear infinite;
+  }
+  @keyframes fall {
+    0% { transform: translateY(-100px) rotate(0deg); }
+    100% { transform: translateY(110vh) rotate(360deg); }
+  }
 
 #thankyou {
     width: 100%; /* Ensure it spans the full width */
